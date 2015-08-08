@@ -13,10 +13,10 @@ import (
 type Event struct {
 	Name string
 	Data struct {
-		Data      string `json:"data"`
-		TTL       string `json:"ttl"`
-		Timestamp string `json:"published_at"`
-		CoreID    string `json:"coreid"`
+		Data      string    `json:"data"`
+		TTL       string    `json:"ttl"`
+		Timestamp time.Time `json:"published_at"`
+		CoreID    string    `json:"coreid"`
 	}
 }
 
