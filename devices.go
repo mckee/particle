@@ -1,7 +1,7 @@
 package particle
 
 import (
-	"bufio"
+	"io/ioutil"
 	"crypto/tls"
 	"encoding/json"
 	"log"
@@ -40,15 +40,15 @@ func GetDevice(Id string, token string) Device {
 		log.Fatal(err)
 	}
 
-	reader := bufio.NewReader(resp.Body)
+
 
 	var device Device
-	line, err := reader.ReadString('}')
-  // log.Printf(line)
+  response, err := ioutil.ReadAll(resp.Body)
+  log.Printf(string(response))
 	if err != nil {
 		log.Fatal(err)
 	} else {
-		err := json.Unmarshal([]byte(line), &device)
+		err := json.Unmarshal(response, &device)
 		if err != nil {
 			log.Fatal(err)
 		}
