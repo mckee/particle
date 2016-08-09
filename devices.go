@@ -1,9 +1,9 @@
 package particle
 
 import (
-	"io/ioutil"
 	"crypto/tls"
 	"encoding/json"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"time"
@@ -40,11 +40,9 @@ func GetDevice(Id string, token string) Device {
 		log.Fatal(err)
 	}
 
-
-
 	var device Device
-  response, err := ioutil.ReadAll(resp.Body)
-  log.Printf(string(response))
+	response, err := ioutil.ReadAll(resp.Body)
+	log.Printf(string(response))
 	if err != nil {
 		log.Fatal(err)
 	} else {
